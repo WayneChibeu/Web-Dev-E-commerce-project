@@ -1,0 +1,41 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Your Shopping Cart</h1>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html" class="active">Cart</a>
+    </nav>
+  </header>
+  <div class="main-content">
+    <main class="container">
+      <h2>Shopping Cart</h2>
+      <div class="cart-container">
+          <section id="cart-items">
+              <!-- Cart items will be loaded here -->
+          </section>
+          <section class="cart-summary">
+              <h2>Total: $0.00</h2>
+              <form id="checkout-form">
+                  <button type="submit" class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+              </form>
+          </section>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2025 MyShop. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

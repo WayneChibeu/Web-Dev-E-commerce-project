@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Thank You</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Thank You for Your Purchase!</h1>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <div class="main-content">
+    <main class="container">
+      <section class="thank-you">
+        <p>Your order has been placed successfully.</p>
+        <p>We appreciate your business!</p>
+        <a href="products.html" class="btn">Continue Shopping</a>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <!-- Footer content -->
+  </footer>
+
+  <script>
+    // Clear the cart when the checkout page loads
+    localStorage.removeItem('cart');
+  </script>
+</body>
+</html>
