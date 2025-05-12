@@ -1,6 +1,6 @@
 # 🛍️ E-commerce Website – PLP Multipage Assignment
 
-This is a responsive multipage E-commerce website created for the Power Learn Project (PLP) software engineering assignment. It demonstrates core web development skills using **HTML5**, **CSS3**, and **JavaScript**, and is deployed using GitHub Pages.
+This is a responsive multipage E-commerce website created for the Power Learn Project (PLP) Web Development assignment. It demonstrates core web development skills using **HTML5**, **CSS3**, and **JavaScript**, and is deployed using GitHub Pages.
 
 ---
 
