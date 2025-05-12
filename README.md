@@ -5,7 +5,7 @@ This is a responsive multipage E-commerce website created for the Power Learn Pr
 ---
 
 ## 🌐 Live Website  
-👉 [View Live Site](https://your-username.github.io/ecommerce-plp/)  
+👉 [View Live Site]([https://your-username.github.io/ecommerce-plp/](https://waynechibeu.github.io/Web-Dev-E-commerce-project/))  
 
 ---
 
@@ -78,6 +78,6 @@ This project was built to demonstrate the following skills:
 
 **Wayne Chibeu**  
 PLP Africa – Software Engineering Learner  
-GitHub: [@your-username](https://github.com/your-username)
+GitHub: [@your-username](https://github.com/WayneChibeu)
 
 > “Great things are built one line of code at a time.”
