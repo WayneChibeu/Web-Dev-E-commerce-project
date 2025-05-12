@@ -5,7 +5,7 @@ This is a responsive multipage E-commerce website created for the Power Learn Pr
 ---
 
 ## 🌐 Live Website  
-👉 [View Live Site]([https://waynechibeu.github.io/Web-Dev-E-commerce-project/])  
+👉 [View Live Site](https://waynechibeu.github.io/Web-Dev-E-commerce-project/)  
 
 ---
 
