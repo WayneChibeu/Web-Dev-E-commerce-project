@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Checkout - Thank You</title>
+  <title>Checkout - MyShop</title>
   <link rel="stylesheet" href="Style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -12,27 +13,184 @@
     <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
-      <a href="cart.html">Cart</a>
+      <a href="cart.html">Cart <span id="cart-badge" class="badge">0</span></a>
+      <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
     </nav>
   </header>
 
   <div class="main-content">
     <main class="container">
-      <section class="thank-you">
-        <p>Your order has been placed successfully.</p>
-        <p>We appreciate your business!</p>
-        <a href="products.html" class="btn">Continue Shopping</a>
-      </section>
+      <div class="checkout-wrapper">
+        <!-- Checkout Progress -->
+        <div class="checkout-progress">
+          <div class="progress-step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Shopping Cart</div>
+          </div>
+          <div class="progress-step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Shipping</div>
+          </div>
+          <div class="progress-step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Payment</div>
+          </div>
+          <div class="progress-step" data-step="4">
+            <div class="step-number">4</div>
+            <div class="step-label">Confirmation</div>
+          </div>
+        </div>
+
+        <!-- Checkout Forms -->
+        <div class="checkout-forms">
+          <!-- Step 1: Cart Review -->
+          <div class="checkout-step active" id="step-1">
+            <h2>Review Your Cart</h2>
+            <div class="cart-review"></div>
+            <button class="next-step" data-next="2">Proceed to Shipping</button>
+          </div>
+
+          <!-- Step 2: Shipping Information -->
+          <div class="checkout-step" id="step-2">
+            <h2>Shipping Information</h2>
+            <form id="shipping-form" class="checkout-form">
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" id="city" required>
+                </div>
+                <div class="form-group">
+                  <label for="state">State</label>
+                  <input type="text" id="state" required>
+                </div>
+                <div class="form-group">
+                  <label for="zip">ZIP Code</label>
+                  <input type="text" id="zip" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="shipping-method">Shipping Method</label>
+                <select id="shipping-method" required>
+                  <option value="standard">Standard Shipping (Free)</option>
+                  <option value="express">Express Shipping ($9.99)</option>
+                  <option value="overnight">Overnight Shipping ($19.99)</option>
+                </select>
+              </div>
+              <div class="form-buttons">
+                <button type="button" class="prev-step" data-prev="1">Back to Cart</button>
+                <button type="submit" class="next-step" data-next="3">Continue to Payment</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 3: Payment Information -->
+          <div class="checkout-step" id="step-3">
+            <h2>Payment Information</h2>
+            <form id="payment-form" class="checkout-form">
+              <div class="form-group">
+                <label for="card-name">Name on Card</label>
+                <input type="text" id="card-name" required>
+              </div>
+              <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <div class="card-input-wrapper">
+                  <input type="text" id="card-number" required pattern="[0-9]{16}">
+                  <i class="fas fa-credit-card"></i>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="card-expiry">Expiry Date</label>
+                  <input type="text" id="card-expiry" placeholder="MM/YY" required pattern="[0-9]{2}/[0-9]{2}">
+                </div>
+                <div class="form-group">
+                  <label for="card-cvv">CVV</label>
+                  <input type="text" id="card-cvv" required pattern="[0-9]{3,4}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="save-card">
+                  Save card for future purchases
+                </label>
+              </div>
+              <div class="form-buttons">
+                <button type="button" class="prev-step" data-prev="2">Back to Shipping</button>
+                <button type="submit" class="next-step" data-next="4">Place Order</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 4: Confirmation -->
+          <div class="checkout-step" id="step-4">
+            <div class="order-confirmation">
+              <i class="fas fa-check-circle"></i>
+              <h2>Thank You for Your Order!</h2>
+              <p>Your order has been placed successfully.</p>
+              <div class="order-details">
+                <h3>Order Details</h3>
+                <p>Order Number: <span id="order-number"></span></p>
+                <p>Estimated Delivery: <span id="delivery-date"></span></p>
+              </div>
+              <div class="confirmation-actions">
+                <a href="products.html" class="button">Continue Shopping</a>
+                <button class="button" onclick="trackOrder()">Track Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-items"></div>
+          <div class="summary-totals">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="summary-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span id="summary-shipping">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Tax</span>
+              <span id="summary-tax">$0.00</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span id="summary-total">$0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 
   <footer>
-    <!-- Footer content -->
+    <p>&copy; 2025 MyShop. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Clear the cart when the checkout page loads
-    localStorage.removeItem('cart');
-  </script>
+  <script src="Js/script.js"></script>
 </body>
 </html>

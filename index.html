@@ -3,26 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyShop | Home</title>
+  <title>MyShop - Home</title>
   <link rel="stylesheet" href="Style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <nav aria-label="Main navigation">
-      <a href="index.html" class="active">Home</a>
-      <a href="products.html">Products</a>
-      <a href="cart.html">Cart</a>
-    </nav>
+    <div class="header-content">
+      <h1>MyShop</h1>
+      <div class="nav-container">
+        <nav aria-label="Main navigation">
+          <a href="index.html" class="active" aria-current="page">Home</a>
+          <a href="products.html">Products</a>
+          <a href="cart.html">Cart</a>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
   </header>
 
   <div class="main-content">
-    <main>
-      <section class="hero">
-        <h2>Welcome to MyShop!</h2>
-        <p>Find the best deals on amazing products.</p>
-        <a href="products.html" class="btn">Shop Now</a>
-      </section>
-    </main>
+    <section class="hero">
+      <h2>Welcome to MyShop</h2>
+      <p>Discover amazing products at great prices</p>
+      <a href="products.html" class="btn">Start Shopping</a>
+    </section>
+
+    <section class="featured-products">
+      <div class="product-grid">
+        <!-- Featured products will be loaded here -->
+      </div>
+    </section>
   </div>
 
   <footer>

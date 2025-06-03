@@ -3,102 +3,231 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyShop | Products</title>
+  <title>Products - MyShop</title>
   <link rel="stylesheet" href="Style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header>
     <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
-      <a href="products.html" class="active">Products</a>
-      <a href="cart.html">Cart</a>
+      <a href="products.html" class="active" aria-current="page">Products</a>
+      <a href="cart.html">Cart <span id="cart-badge" class="badge">0</span></a>
+      <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
     </nav>
   </header>
 
-  <main>
-    <div class="layout-container">
-      <section class="hero">
-        <h2>Shop Our Latest Products</h2>
-        <p>Discover amazing deals on the latest gadgets and accessories.</p>
-      </section>
+  <div class="main-content">
+    <main class="container">
+      <h1>Our Products</h1>
+      
+      <!-- Search and Sort Section -->
+      <div class="product-controls">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search products...">
+          <button id="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div class="sort-options">
+          <select id="sort-select">
+            <option value="default">Sort by</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+            <option value="name-desc">Name: Z to A</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="categories">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="electronics">Electronics</button>
+        <button class="category-btn" data-category="clothing">Clothing</button>
+        <button class="category-btn" data-category="books">Books</button>
+        <button class="category-btn" data-category="home">Home & Living</button>
+        <button class="category-btn" data-category="sports">Sports & Fitness</button>
+        <button class="category-btn" data-category="beauty">Beauty & Health</button>
+        <button class="category-btn" data-category="toys">Toys & Games</button>
+      </div>
 
-      <section class="product-grid">
-
-        <!-- Product 1 -->
-        <div class="product-card">
-          <img src="Images/product1.jpg" alt="Cool Sneakers" />
-          <h3>Cool Sneakers</h3>
-          <p>$49.99</p>
-          <button class="add-to-cart" data-name="Cool Sneakers" data-price="49.99" data-image="Images/product1.jpg">Add to Cart</button>
+      <div class="product-grid">
+        <!-- Electronics -->
+        <div class="product-card" data-category="electronics" data-product-id="1" data-name="Smart Watch Pro" data-price="199.99" data-rating="4.5" data-popularity="95">
+          <div class="product-badge">New</div>
+          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12" alt="Smart Watch Pro">
+          <div class="product-info">
+            <h3>Smart Watch Pro</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(4.5)</span>
+            </div>
+            <p class="price">$199.99</p>
+            <p class="description">Advanced fitness tracking, heart rate monitoring, and smart notifications.</p>
+            <button class="add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="quick-view" data-product-id="1">
+              <i class="fas fa-eye"></i>
+              Quick View
+            </button>
+          </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="product-card">
-          <img src="Images/product2.jpg" alt="Wireless Headphones" />
-          <h3>Wireless Headphones</h3>
-          <p>$79.99</p>
-          <button class="add-to-cart" data-name="Wireless Headphones" data-price="79.99" data-image="Images/product2.jpg">Add to Cart</button>
+        <div class="product-card" data-category="electronics" data-product-id="2" data-name="Wireless Earbuds Pro" data-price="149.99" data-rating="4.8" data-popularity="88">
+          <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df" alt="Wireless Earbuds Pro">
+          <div class="product-info">
+            <h3>Wireless Earbuds Pro</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(4.8)</span>
+            </div>
+            <p class="price">$149.99</p>
+            <p class="description">Active noise cancellation, premium sound quality, 24-hour battery life.</p>
+            <button class="add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="quick-view" data-product-id="2">
+              <i class="fas fa-eye"></i>
+              Quick View
+            </button>
+          </div>
         </div>
 
-        <!-- Product 3 -->
-        <div class="product-card">
-          <img src="Images/product3.jpg" alt="Smart Watch" />
-          <h3>Smart Watch</h3>
-          <p>$99.99</p>
-          <button class="add-to-cart" data-name="Smart Watch" data-price="99.99" data-image="Images/product3.jpg">Add to Cart</button>
+        <!-- Clothing -->
+        <div class="product-card" data-category="clothing" data-product-id="3" data-name="Premium Cotton T-Shirt" data-price="29.99" data-rating="4.3" data-popularity="82">
+          <div class="product-badge">Sale</div>
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Premium Cotton T-Shirt">
+          <div class="product-info">
+            <h3>Premium Cotton T-Shirt</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>(4.3)</span>
+            </div>
+            <p class="price">
+              <span class="original-price">$39.99</span>
+              $29.99
+            </p>
+            <p class="description">100% organic cotton, comfortable fit, multiple colors available.</p>
+            <button class="add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="quick-view" data-product-id="3">
+              <i class="fas fa-eye"></i>
+              Quick View
+            </button>
+          </div>
         </div>
 
-        <!-- Product 4 -->
-        <div class="product-card">
-          <img src="Images/product4.jpg" alt="Stylish Backpack" />
-          <h3>Stylish Backpack</h3>
-          <p>$39.99</p>
-          <button class="add-to-cart" data-name="Stylish Backpack" data-price="39.99" data-image="Images/product4.jpg">Add to Cart</button>
+        <!-- Sports & Fitness -->
+        <div class="product-card" data-category="sports" data-product-id="4" data-name="Yoga Mat Premium" data-price="49.99" data-rating="4.7" data-popularity="78">
+          <img src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2" alt="Yoga Mat Premium">
+          <div class="product-info">
+            <h3>Yoga Mat Premium</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(4.7)</span>
+            </div>
+            <p class="price">$49.99</p>
+            <p class="description">Eco-friendly material, non-slip surface, perfect thickness for comfort.</p>
+            <button class="add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="quick-view" data-product-id="4">
+              <i class="fas fa-eye"></i>
+              Quick View
+            </button>
+          </div>
         </div>
 
-        <!-- Product 5 -->
-        <div class="product-card">
-          <img src="Images/product5.jpg" alt="Gaming Mouse" />
-          <h3>Gaming Mouse</h3>
-          <p>$29.99</p>
-          <button class="add-to-cart" data-name="Gaming Mouse" data-price="29.99" data-image="Images/product5.jpg">Add to Cart</button>
+        <!-- Beauty & Health -->
+        <div class="product-card" data-category="beauty" data-product-id="5" data-name="Natural Face Serum" data-price="34.99" data-rating="4.6" data-popularity="85">
+          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be" alt="Natural Face Serum">
+          <div class="product-info">
+            <h3>Natural Face Serum</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(4.6)</span>
+            </div>
+            <p class="price">$34.99</p>
+            <p class="description">Organic ingredients, hydrating formula, suitable for all skin types.</p>
+            <button class="add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="quick-view" data-product-id="5">
+              <i class="fas fa-eye"></i>
+              Quick View
+            </button>
+          </div>
         </div>
 
-        <!-- Product 6 -->
-        <div class="product-card">
-          <img src="Images/product6.jpg" alt="Bluetooth Speaker" />
-          <h3>Bluetooth Speaker</h3>
-          <p>$59.99</p>
-          <button class="add-to-cart" data-name="Bluetooth Speaker" data-price="59.99" data-image="Images/product6.jpg">Add to Cart</button>
+        <!-- Toys & Games -->
+        <div class="product-card" data-category="toys" data-product-id="6" data-name="Educational Robot Kit" data-price="79.99" data-rating="4.4" data-popularity="72">
+          <div class="product-badge">Best Seller</div>
+          <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008" alt="Educational Robot Kit">
+          <div class="product-info">
+            <h3>Educational Robot Kit</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>(4.4)</span>
+            </div>
+            <p class="price">$79.99</p>
+            <p class="description">Build and program your own robot, perfect for learning STEM skills.</p>
+            <button class="add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="quick-view" data-product-id="6">
+              <i class="fas fa-eye"></i>
+              Quick View
+            </button>
+          </div>
         </div>
+      </div>
 
-        <!-- Product 7 -->
-        <div class="product-card">
-          <img src="Images/product7.jpg" alt="Fitness Tracker" />
-          <h3>Fitness Tracker</h3>
-          <p>$44.99</p>
-          <button class="add-to-cart" data-name="Fitness Tracker" data-price="44.99" data-image="Images/product7.jpg">Add to Cart</button>
+      <!-- Quick View Modal -->
+      <div id="quick-view-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="modal-body">
+            <!-- Content will be dynamically loaded -->
+          </div>
         </div>
-
-        <!-- Product 8 -->
-        <div class="product-card">
-          <img src="Images/product8.jpg" alt="USB-C Charger" />
-          <h3>USB-C Charger</h3>
-          <p>$19.99</p>
-          <button class="add-to-cart" data-name="USB-C Charger" data-price="19.99" data-image="Images/product8.jpg">Add to Cart</button>
-        </div>
-
-        <!-- Product 9 -->
-        <div class="product-card">
-          <img src="Images/product9.jpg" alt="Portable SSD" />
-          <h3>Portable SSD</h3>
-          <p>$89.99</p>
-          <button class="add-to-cart" data-name="Portable SSD" data-price="89.99" data-image="Images/product9.jpg">Add to Cart</button>
-        </div>
-
-      </section>
-    </div>
-  </main>
+      </div>
+    </main>
+  </div>
 
   <footer>
     <p>&copy; 2025 MyShop. All rights reserved.</p>
